@@ -8,6 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Department.png" />
+    <None Remove="Employee.png" />
+    <None Remove="Exit.png" />
+    <None Remove="Logo.png" />
+    <None Remove="Logout.png" />
+    <None Remove="Permission.png" />
+    <None Remove="Position.png" />
+    <None Remove="Salary.png" />
+    <None Remove="Tasks.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.6">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -21,6 +33,18 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Department.png" />
+    <Resource Include="Employee.png" />
+    <Resource Include="Exit.png" />
+    <Resource Include="Logo.png" />
+    <Resource Include="Logout.png" />
+    <Resource Include="Permission.png" />
+    <Resource Include="Position.png" />
+    <Resource Include="Salary.png" />
+    <Resource Include="Tasks.png" />
   </ItemGroup>
 
 </Project>
