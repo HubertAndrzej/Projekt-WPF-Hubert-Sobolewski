@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFEmployeesTracker"
+        xmlns:views="clr-namespace:WPFEmployeesTracker.Views"
+        xmlns:viewmodels="clr-namespace:WPFEmployeesTracker.ViewModels"
         mc:Ignorable="d"
         Title="WPF Employees Tracker" Name="EmployeeMainWindow" Height="540" Width="1200" WindowStartupLocation="CenterScreen" FontSize="24" FontWeight="Bold" Background="#FF6690B5" Icon="/Logo.png" ResizeMode="NoResize">
     <Grid>
@@ -23,7 +25,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Image Source="/Logo.png"/>
-        <ContentControl Grid.Column="1" Content="" Grid.Row="1" Grid.RowSpan="8" Height="Auto" Width="Auto"/>
+        <ContentControl Grid.Column="1" Content="{Binding}" Grid.Row="1" Grid.RowSpan="8" Height="Auto" Width="Auto"/>
         <Label x:Name="lblWindowName" Grid.Column="1" Content="Windows Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
         <StackPanel Grid.Row="1" Margin="0,2,0,0">
             <Button Grid.Row="1" Name="btnEmployee" Height="60" Width="250" HorizontalAlignment="Left">
@@ -74,7 +76,7 @@
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="5" Margin="0,2,0,0">
-            <Button Grid.Row="5" Name="btnDepartment" Height="60" Width="250" HorizontalAlignment="Left">
+            <Button Grid.Row="5" Name="btnDepartment" Height="60" Width="250" HorizontalAlignment="Left" Click="btnDepartment_Click">
                 <Grid Width="230">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto" />
@@ -122,4 +124,9 @@
             </Button>
         </StackPanel>
     </Grid>
+    <Window.Resources>
+        <DataTemplate x:Name="DepartmentTemplate" DataType="{x:Type viewmodels:DepartmentViewModel}">
+            <views:DepartmentList></views:DepartmentList>
+        </DataTemplate>
+    </Window.Resources>
 </Window>

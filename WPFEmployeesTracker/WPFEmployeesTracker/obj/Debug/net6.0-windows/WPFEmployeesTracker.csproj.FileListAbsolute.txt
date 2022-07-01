@@ -51,3 +51,6 @@ C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmploy
 C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\WPFEmployeesTracker.pdb
 C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\WPFEmployeesTracker.genruntimeconfig.cache
 C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\ref\WPFEmployeesTracker.dll
+C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\Views\DepartmentList.g.cs
+C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\Views\DepartmentList.baml

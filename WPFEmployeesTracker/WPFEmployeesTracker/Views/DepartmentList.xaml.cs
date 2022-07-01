@@ -12,24 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPFEmployeesTracker.ViewModels;
+using WPFEmployeesTracker.Models;
 
-namespace WPFEmployeesTracker
+namespace WPFEmployeesTracker.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DepartmentList.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DepartmentList : UserControl
     {
-        public MainWindow()
+        public DepartmentList()
         {
             InitializeComponent();
-        }
-
-        private void btnDepartment_Click(object sender, RoutedEventArgs e)
-        {
-            lblWindowName.Content = "Department List";
-            DataContext = new DepartmentViewModel();
+            using(EmployeesTrackerContext db=new EmployeesTrackerContext())
+            {
+                List<Department> list = db.Departments.ToList();
+                gridDepartment.ItemsSource = list;
+            }
         }
     }
 }
