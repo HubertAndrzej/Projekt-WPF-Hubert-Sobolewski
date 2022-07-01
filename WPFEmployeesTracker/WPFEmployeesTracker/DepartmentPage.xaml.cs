@@ -30,6 +30,8 @@ namespace WPFEmployeesTracker
             this.Close();
         }
 
+        public Department department;
+
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             if (txtDepartmentName.Text.Trim() == "")
@@ -40,13 +42,33 @@ namespace WPFEmployeesTracker
             {
                 using (EmployeesTrackerContext db = new EmployeesTrackerContext())
                 {
-                    Department dpt = new Department();
-                    dpt.DepartmentName = txtDepartmentName.Text;
-                    db.Departments.Add(dpt);
-                    db.SaveChanges();
-                    txtDepartmentName.Clear();
-                    MessageBox.Show("The department has been added");
+                    if (department != null && department.Id != 0)
+                    {
+                        Department update = new Department();
+                        update.DepartmentName = txtDepartmentName.Text;
+                        update.Id = department.Id;
+                        db.Departments.Update(update);
+                        db.SaveChanges();
+                        MessageBox.Show("The department has been updated");
+                    }
+                    else
+                    {
+                        Department dpt = new Department();
+                        dpt.DepartmentName = txtDepartmentName.Text;
+                        db.Departments.Add(dpt);
+                        db.SaveChanges();
+                        txtDepartmentName.Clear();
+                        MessageBox.Show("The department has been added");
+                    }
                 }
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (department != null && department.Id != 0)
+            {
+                txtDepartmentName.Text = department.DepartmentName;
             }
         }
     }

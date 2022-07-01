@@ -41,5 +41,17 @@ namespace WPFEmployeesTracker.Views
                 gridDepartment.ItemsSource = list;
             }
         }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Department dpt = (Department)gridDepartment.SelectedItem;
+            DepartmentPage page = new DepartmentPage();
+            page.department = dpt;
+            page.ShowDialog();
+            using (EmployeesTrackerContext db = new EmployeesTrackerContext())
+            {
+                gridDepartment.ItemsSource = db.Departments.OrderBy(x => x.DepartmentName).ToList();
+            }
+        }
     }
 }
