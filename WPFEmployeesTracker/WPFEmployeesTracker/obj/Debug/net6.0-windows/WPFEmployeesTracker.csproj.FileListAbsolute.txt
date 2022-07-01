@@ -54,3 +54,5 @@ C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmploy
 C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\Views\DepartmentList.g.cs
 C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\Views\DepartmentList.baml
+C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\DepartmentPage.g.cs
+C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\DepartmentPage.baml

@@ -26,7 +26,18 @@ namespace WPFEmployeesTracker.Views
             InitializeComponent();
             using(EmployeesTrackerContext db=new EmployeesTrackerContext())
             {
-                List<Department> list = db.Departments.ToList();
+                List<Department> list = db.Departments.OrderBy(x=>x.DepartmentName).ToList();
+                gridDepartment.ItemsSource = list;
+            }
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            DepartmentPage page = new DepartmentPage();
+            page.ShowDialog();
+            using (EmployeesTrackerContext db = new EmployeesTrackerContext())
+            {
+                List<Department> list = db.Departments.OrderBy(x => x.DepartmentName).ToList();
                 gridDepartment.ItemsSource = list;
             }
         }
