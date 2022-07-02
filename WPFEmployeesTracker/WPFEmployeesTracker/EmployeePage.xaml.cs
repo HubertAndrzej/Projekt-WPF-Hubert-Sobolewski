@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WPFEmployeesTracker.Models;
+using WPFEmployeesTracker.ViewModels;
 
 namespace WPFEmployeesTracker
 {
@@ -30,6 +31,7 @@ namespace WPFEmployeesTracker
 
         EmployeesTrackerContext db = new EmployeesTrackerContext();
         List<Position> positions = new List<Position>();
+        public EmployeeModel model;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -42,6 +44,24 @@ namespace WPFEmployeesTracker
             cmbPosition.DisplayMemberPath = "PositionName";
             cmbPosition.SelectedValuePath = "Id";
             cmbPosition.SelectedIndex = -1;
+            if (model != null && model.Id != 0)
+            {
+                cmbDepartment.SelectedValue = model.DepartmentId;
+                cmbPosition.SelectedValue = model.PositionId;
+                txtEmployeeNo.Text = model.EmployeeNo.ToString();
+                txtPassword.Text = model.Password;
+                txtName.Text = model.Name;
+                txtSurname.Text = model.Surname;
+                txtSalary.Text = model.Salary.ToString();
+                txtAddress.AppendText(model.Address);
+                picker1.SelectedDate = model.BirthDay;
+                chisAdmin.IsChecked = model.isAdmin;
+                BitmapImage image = new BitmapImage();
+                image.BeginInit();
+                image.UriSource = new Uri(@"images/" + model.ImagePath, UriKind.RelativeOrAbsolute);
+                image.EndInit();
+                EmployeeImage.Source = image;
+            }
         }
 
         private void cmbDepartment_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -84,46 +104,86 @@ namespace WPFEmployeesTracker
             }
             else
             {
-                var UniqueList = db.Employees.Where(x => x.EmployeeNo == Convert.ToInt32(txtEmployeeNo.Text)).ToList();
-                if (UniqueList.Count > 0)
+                if (model != null && model.Id != 0)
                 {
-                    MessageBox.Show("This EmployeeNo is already used");
+                    Employee employee = db.Employees.Find(model.Id);
+                    List<Employee> employeeList = db.Employees.Where(x => x.EmployeeNo == Convert.ToInt32(txtEmployeeNo.Text) && x.Id != employee.Id).ToList();
+                    if (employeeList.Count > 0)
+                    {
+                        MessageBox.Show("This EmployeeNo is already used");
+                    }
+                    else
+                    {
+                        if (txtImage.Text.Trim() != "")
+                        {
+                            if (File.Exists(@"images//" + employee.ImagePath))
+                            {
+                                File.Delete(@"images//" + employee.ImagePath);
+                                string filename = "";
+                                string Unique = Guid.NewGuid().ToString();
+                                filename += Unique + System.IO.Path.GetFileName(txtImage.Text);
+                                File.Copy(txtImage.Text, @"images//" + filename);
+                                employee.ImagePath = filename;
+                            }
+                        }
+                        employee.EmployeeNo = Convert.ToInt32(txtEmployeeNo.Text);
+                        employee.Password = txtPassword.Text;
+                        employee.IsAdmin = chisAdmin.IsChecked;
+                        TextRange address = new TextRange(txtAddress.Document.ContentStart, txtAddress.Document.ContentEnd);
+                        employee.Address = address.Text;
+                        employee.BirthDay = picker1.SelectedDate;
+                        employee.DepartmentId = Convert.ToInt32(cmbDepartment.SelectedValue);
+                        employee.PositionId = Convert.ToInt32(cmbPosition.SelectedValue);
+                        employee.Name = txtName.Text;
+                        employee.Surname = txtSurname.Text;
+                        employee.Salary = Convert.ToInt32(txtSalary.Text);
+                        db.SaveChanges();
+                        MessageBox.Show("The employee has been updated");
+                    }
                 }
                 else
                 {
-                    Employee employee = new Employee();
-                    employee.EmployeeNo = Convert.ToInt32(txtEmployeeNo.Text);
-                    employee.Password = txtPassword.Text;
-                    employee.Name = txtName.Text;
-                    employee.Surname = txtSurname.Text;
-                    employee.Salary = Convert.ToInt32(txtSalary.Text);
-                    employee.DepartmentId = Convert.ToInt32(cmbDepartment.SelectedValue);
-                    employee.PositionId = Convert.ToInt32(cmbPosition.SelectedValue);
-                    TextRange text = new TextRange(txtAddress.Document.ContentStart, txtAddress.Document.ContentEnd);
-                    employee.Address = text.Text;
-                    employee.BirthDay = picker1.SelectedDate;
-                    employee.IsAdmin = (bool)chisAdmin.IsChecked;
-                    string filename = "";
-                    string Unique = Guid.NewGuid().ToString();
-                    filename += Unique + dialog.SafeFileName;
-                    employee.ImagePath = filename;
-                    db.Employees.Add(employee);
-                    db.SaveChanges();
-                    File.Copy(txtImage.Text, @"images" + filename);
-                    MessageBox.Show("The employee has been added");
-                    txtEmployeeNo.Clear();
-                    txtPassword.Clear();
-                    txtName.Clear();
-                    txtSurname.Clear();
-                    txtSalary.Clear();
-                    picker1.SelectedDate = DateTime.Today;
-                    cmbDepartment.SelectedIndex = -1;
-                    cmbPosition.ItemsSource = positions;
-                    cmbPosition.SelectedIndex = -1;
-                    txtAddress.Document.Blocks.Clear();
-                    chisAdmin.IsChecked = false;
-                    EmployeeImage.Source = new BitmapImage();
-                    txtImage.Clear();
+                    var UniqueList = db.Employees.Where(x => x.EmployeeNo == Convert.ToInt32(txtEmployeeNo.Text)).ToList();
+                    if (UniqueList.Count > 0)
+                    {
+                        MessageBox.Show("This EmployeeNo is already used");
+                    }
+                    else
+                    {
+                        Employee employee = new Employee();
+                        employee.EmployeeNo = Convert.ToInt32(txtEmployeeNo.Text);
+                        employee.Password = txtPassword.Text;
+                        employee.Name = txtName.Text;
+                        employee.Surname = txtSurname.Text;
+                        employee.Salary = Convert.ToInt32(txtSalary.Text);
+                        employee.DepartmentId = Convert.ToInt32(cmbDepartment.SelectedValue);
+                        employee.PositionId = Convert.ToInt32(cmbPosition.SelectedValue);
+                        TextRange text = new TextRange(txtAddress.Document.ContentStart, txtAddress.Document.ContentEnd);
+                        employee.Address = text.Text;
+                        employee.BirthDay = picker1.SelectedDate;
+                        employee.IsAdmin = (bool)chisAdmin.IsChecked;
+                        string filename = "";
+                        string Unique = Guid.NewGuid().ToString();
+                        filename += Unique + dialog.SafeFileName;
+                        employee.ImagePath = filename;
+                        db.Employees.Add(employee);
+                        db.SaveChanges();
+                        File.Copy(txtImage.Text, @"images//" + filename);
+                        MessageBox.Show("The employee has been added");
+                        txtEmployeeNo.Clear();
+                        txtPassword.Clear();
+                        txtName.Clear();
+                        txtSurname.Clear();
+                        txtSalary.Clear();
+                        picker1.SelectedDate = DateTime.Today;
+                        cmbDepartment.SelectedIndex = -1;
+                        cmbPosition.ItemsSource = positions;
+                        cmbPosition.SelectedIndex = -1;
+                        txtAddress.Document.Blocks.Clear();
+                        chisAdmin.IsChecked = false;
+                        EmployeeImage.Source = new BitmapImage();
+                        txtImage.Clear();
+                    }
                 }
             }
         }
@@ -140,6 +200,11 @@ namespace WPFEmployeesTracker
             {
                 MessageBox.Show("This EmployeeNo is available");
             }
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
