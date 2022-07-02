@@ -28,7 +28,7 @@
         <ContentControl Grid.Column="1" Content="{Binding}" Grid.Row="1" Grid.RowSpan="8" Height="Auto" Width="Auto"/>
         <Label x:Name="lblWindowName" Grid.Column="1" Content="Windows Name" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
         <StackPanel Grid.Row="1" Margin="0,2,0,0">
-            <Button Grid.Row="1" Name="btnEmployee" Height="60" Width="250" HorizontalAlignment="Left">
+            <Button Grid.Row="1" Name="btnEmployee" Height="60" Width="250" HorizontalAlignment="Left" Click="btnEmployee_Click">
                 <Grid Width="230">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto" />
@@ -130,6 +130,9 @@
         </DataTemplate>
         <DataTemplate x:Name="PositionTemplate" DataType="{x:Type viewmodels:PositionViewModel}">
             <views:PositionList></views:PositionList>
+        </DataTemplate>
+        <DataTemplate x:Name="EmployeeTemplate" DataType="{x:Type viewmodels:EmployeeViewModel}">
+            <views:EmployeeList></views:EmployeeList>
         </DataTemplate>
     </Window.Resources>
 </Window>

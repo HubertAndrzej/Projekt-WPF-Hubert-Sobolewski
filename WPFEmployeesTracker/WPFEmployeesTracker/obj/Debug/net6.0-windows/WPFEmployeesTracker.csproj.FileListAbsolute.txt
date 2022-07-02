@@ -60,3 +60,7 @@ C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmploy
 C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\Views\PositionList.baml
 C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\PositionPage.g.cs
 C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\PositionPage.baml
+C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\Views\EmployeeList.g.cs
+C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\Views\EmployeeList.baml
+C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\EmployeePage.g.cs
+C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\EmployeePage.baml
