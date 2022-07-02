@@ -25,8 +25,8 @@
                 <DataGridTextColumn Header="EmployeeNo" Width="*" Binding="{Binding EmployeeNo}" />
                 <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Surname" Width="*" Binding="{Binding Surname}" />
-                <DataGridTextColumn Header="Position Name" Width="*" Binding="{Binding PositionName}" />
-                <DataGridTextColumn Header="Department Name" Width="*" Binding="{Binding DepartmentName}" />
+                <DataGridTextColumn Header="Position" Width="*" Binding="{Binding PositionName}" />
+                <DataGridTextColumn Header="Department" Width="*" Binding="{Binding DepartmentName}" />
                 <DataGridTextColumn Header="Salary" Width="*" Binding="{Binding Salary}" />
                 <DataGridTextColumn Header="PositionId" Width="*" Binding="{Binding PositionId}" Visibility="Hidden" />
                 <DataGridTextColumn Header="DepartmentId" Width="*" Binding="{Binding DepartmentId}" Visibility="Hidden" />
@@ -49,20 +49,20 @@
                 <ColumnDefinition Width="100*" />
                 <ColumnDefinition Width="80*" />
             </Grid.ColumnDefinitions>
-            <Label Content="EmployeeNo" Height="34" Width="78" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <Label Content="EmployeeNo" Height="34" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" />
             <TextBox x:Name="txtEmployeeNo" Grid.Column="1" TextWrapping="Wrap" Margin="0,0,0,0" Height="26" />
-            <Label Content="Name" Grid.Row="1" Height="34" Width="78" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <Label Content="Name" Grid.Row="1" Height="34" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" />
             <TextBox x:Name="txtName" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Margin="0,0,0,0" Height="26" />
-            <Label Content="Surname" Grid.Row="2" Height="34" Width="78" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <Label Content="Surname" Grid.Row="2" Height="34" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" />
             <TextBox x:Name="txtSurname" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Margin="0,0,0,0" Height="26" />
-            <Label Content="Department" Grid.Column="2" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Height="34" />
+            <Label Content="Department" Grid.Column="2" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Height="34" />
             <ComboBox Name="cmbDepartment" Grid.Column="3" VerticalAlignment="Center" Height="30" Margin="0,0,0,0" />
-            <Label Content="Position" Grid.Row="1" Grid.Column="2" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Height="34" />
+            <Label Content="Position" Grid.Row="1" Grid.Column="2" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center" Height="34" />
             <ComboBox Name="cmbPosition" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" Height="30" Margin="0,0,0,0" />
             <Button Grid.Column="4" Content="Search" Name="btnSearch" Margin="20,5,10,5" />
             <Button Grid.Row="1" Grid.Column="4" Content="Clear" Name="btnClear" Margin="20,5,10,5" />
         </Grid>
-        <Button x:Name="btnAdd" Content="Add" FontSize="18" FontWeight="Bold" Grid.Row="2" Grid.Column="1" Margin="40,5,40,5" />
+        <Button x:Name="btnAdd" Content="Add" FontSize="18" FontWeight="Bold" Grid.Row="2" Grid.Column="1" Margin="40,5,40,5" Click="btnAdd_Click" />
         <Button x:Name="btnUpdate" Content="Update" FontSize="18" FontWeight="Bold" Grid.Row="2" Grid.Column="2" Margin="40,5,40,5" />
         <Button x:Name="btnDelete" Content="Delete" FontSize="18" FontWeight="Bold" Grid.Row="2" Grid.Column="3" Margin="40,5,40,5" />
     </Grid>
