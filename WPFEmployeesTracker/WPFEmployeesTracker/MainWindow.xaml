@@ -40,7 +40,7 @@
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="2" Margin="0,2,0,0">
-            <Button Grid.Row="2" Name="btnTask" Height="60" Width="250" HorizontalAlignment="Left">
+            <Button Grid.Row="2" Name="btnTask" Height="60" Width="250" HorizontalAlignment="Left" Click="btnTask_Click">
                 <Grid Width="230">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto" />
@@ -133,6 +133,9 @@
         </DataTemplate>
         <DataTemplate x:Name="EmployeeTemplate" DataType="{x:Type viewmodels:EmployeeViewModel}">
             <views:EmployeeList></views:EmployeeList>
+        </DataTemplate>
+        <DataTemplate x:Name="TaskTemplate" DataType="{x:Type viewmodels:TaskViewModel}">
+            <views:TaskList></views:TaskList>
         </DataTemplate>
     </Window.Resources>
 </Window>

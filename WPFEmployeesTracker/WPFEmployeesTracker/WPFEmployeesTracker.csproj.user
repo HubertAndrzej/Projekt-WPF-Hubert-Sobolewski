@@ -16,6 +16,9 @@
     <Compile Update="PositionPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="TaskPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\DepartmentList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -23,6 +26,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\PositionList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TaskList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -39,6 +45,9 @@
     <Page Update="PositionPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="TaskPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\DepartmentList.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -46,6 +55,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PositionList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TaskList.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
