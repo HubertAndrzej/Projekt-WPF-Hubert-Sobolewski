@@ -11,7 +11,7 @@ namespace WPFEmployeesTracker.ViewModels
         public int Id { get; set; }
         public int EmployeeId { get; set; }
         public DateTime TaskStartDate { get; set; }
-        public DateTime? TaskDeliverytDate { get; set; }
+        public DateTime? TaskDeliveryDate { get; set; }
         public int TaskState { get; set; }
         public string TaskTitle { get; set; }
         public string TaskContent { get; set; }
@@ -19,5 +19,7 @@ namespace WPFEmployeesTracker.ViewModels
         public string Surname { get; set; }
         public int EmployeeNo { get; set; }
         public string StateName { get; set; }
+        public int DepartmentId { get; set; }
+        public int PositionId { get; set; }
     }
 }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFEmployeesTracker.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="800" FontSize="18" FontWeight="Bold">
+             d:DesignHeight="500" d:DesignWidth="800" FontSize="18" FontWeight="Bold" Loaded="UserControl_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="4*" />
@@ -40,7 +40,7 @@
             <Label Content="Surname" Grid.Row="2" Height="34" Width="133" HorizontalAlignment="Center" VerticalAlignment="Center" />
             <TextBox x:Name="txtSurname" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Height="26" />
             <Label Content="Department" Grid.Row="3" Height="34" Width="133" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            <ComboBox Name="cmbDepartment" Grid.Row="3" Grid.Column="1" Height="30" VerticalAlignment="Center" />
+            <ComboBox Name="cmbDepartment" Grid.Row="3" Grid.Column="1" Height="30" VerticalAlignment="Center" SelectionChanged="cmbDepartment_SelectionChanged" />
             <Label Content="Position" Grid.Row="4" Height="34" Width="133" HorizontalAlignment="Center" VerticalAlignment="Center" />
             <ComboBox Name="cmbPosition" Grid.Row="4" Grid.Column="1" Height="30" VerticalAlignment="Center" />
             <Label Content="Task Date" Grid.Column="3" Height="34" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center" />
@@ -52,17 +52,18 @@
             <ComboBox Name="cmbState" Grid.Row="3" Grid.Column="3" Height="30" VerticalAlignment="Center" />
             <RadioButton x:Name="rbStart" Content="Start Date" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <RadioButton x:Name="rbDelivery" Content="Delivery Date" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <Button x:Name="btnSearch" Content="Search" Grid.Row="3" Grid.Column="4" Margin="10,5,10,5" />
-            <Button x:Name="btnClear" Content="Clear" Grid.Row="4" Grid.Column="4" Margin="10,5,10,5" />
+            <Button x:Name="btnSearch" Content="Search" Grid.Row="3" Grid.Column="4" Margin="10,5,10,5" Click="btnSearch_Click" />
+            <Button x:Name="btnClear" Content="Clear" Grid.Row="4" Grid.Column="4" Margin="10,5,10,5" Click="btnClear_Click" />
         </Grid>
-        <DataGrid Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid x:Name="gridTask" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Width="*" Binding="{Binding Id}" Visibility="Hidden" />
                 <DataGridTextColumn Header="EmployeeNo" Width="*" Binding="{Binding EmployeeNo}" />
                 <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Surname" Width="*" Binding="{Binding Surname}" />
-                <DataGridTextColumn Header="Start Date" Width="*" Binding="{Binding StartDate}" />
-                <DataGridTextColumn Header="Delivery Date" Width="*" Binding="{Binding DeliveryDate}" />
+                <DataGridTextColumn Header="Title" Width="*" Binding="{Binding TaskTitle}" />
+                <DataGridTextColumn Header="Start Date" Width="*" Binding="{Binding TaskStartDate}" />
+                <DataGridTextColumn Header="Delivery Date" Width="*" Binding="{Binding TaskDeliveryDate}" />
                 <DataGridTextColumn Header="State Name" Width="*" Binding="{Binding StateName}" />
                 <DataGridTextColumn Header="Task State" Width="*" Binding="{Binding TaskState}" Visibility="Hidden" />
                 <DataGridTextColumn Header="EmployeeId" Width="*" Binding="{Binding EmployeeId}" Visibility="Hidden" />
