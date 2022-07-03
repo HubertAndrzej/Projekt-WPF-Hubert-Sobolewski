@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WPFEmployeesTracker.Models;
+using WPFEmployeesTracker.ViewModels;
 
 namespace WPFEmployeesTracker
 {
@@ -46,6 +47,14 @@ namespace WPFEmployeesTracker
             cmbPosition.DisplayMemberPath = "PositionName";
             cmbPosition.SelectedValuePath = "Id";
             cmbPosition.SelectedIndex = -1;
+            if (model != null && model.Id != 0)
+            {
+                txtEmployeeNo.Text = model.EmployeeNo.ToString();
+                txtName.Text = model.Name;
+                txtSurname.Text = model.Surname;
+                txtTitle.Text = model.TaskTitle;
+                txtContent.Text = model.TaskContent;
+            }
         }
 
         int EmployeeId = 0;
@@ -58,6 +67,8 @@ namespace WPFEmployeesTracker
             txtSurname.Text = employee.Surname;
             EmployeeId = employee.Id;
         }
+
+        public TaskModel model;
 
         private void cmbDepartment_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -73,31 +84,49 @@ namespace WPFEmployeesTracker
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (EmployeeId == 0)
-            {
-                MessageBox.Show("Please select an employee from table");
-            }
-            else if (txtTitle.Text.Trim() == "" || txtContent.Text.Trim() == "")
+            if (txtTitle.Text.Trim() == "" || txtContent.Text.Trim() == "")
             {
                 MessageBox.Show("Please fill the mandatory areas");
             }
             else
             {
-                Task task = new Task();
-                task.EmployeeId = EmployeeId;
-                task.TaskStartDate = DateTime.Now;
-                task.TaskTitle = txtTitle.Text;
-                task.TaskContent = txtContent.Text;
-                task.TaskState = Definitions.TaskStates.OnEmployee;
-                db.Tasks.Add(task);
-                db.SaveChanges();
-                MessageBox.Show("The task has been added");
-                EmployeeId = 0;
-                txtContent.Clear();
-                txtTitle.Clear();
-                txtEmployeeNo.Clear();
-                txtName.Clear();
-                txtSurname.Clear();
+                if (model != null && model.Id != 0)
+                {
+                    Task task = db.Tasks.Find(model.Id);
+                    if (EmployeeId != 0)
+                    {
+                        task.EmployeeId = EmployeeId;
+                    }
+                    task.TaskTitle = txtTitle.Text;
+                    task.TaskContent = txtContent.Text;
+                    db.SaveChanges();
+                    MessageBox.Show("The task has been updated");
+                }
+                else
+                {
+                    if (EmployeeId == 0)
+                    {
+                        MessageBox.Show("Please select an employee from table");
+                    }
+                    else
+                    {
+                        Task task = new Task();
+                        task.EmployeeId = EmployeeId;
+                        task.TaskStartDate = DateTime.Now;
+                        task.TaskTitle = txtTitle.Text;
+                        task.TaskContent = txtContent.Text;
+                        task.TaskState = Definitions.TaskStates.OnEmployee;
+                        db.Tasks.Add(task);
+                        db.SaveChanges();
+                        MessageBox.Show("The task has been added");
+                        EmployeeId = 0;
+                        txtContent.Clear();
+                        txtTitle.Clear();
+                        txtEmployeeNo.Clear();
+                        txtName.Clear();
+                        txtSurname.Clear();
+                    }
+                }
             }
         }
     }

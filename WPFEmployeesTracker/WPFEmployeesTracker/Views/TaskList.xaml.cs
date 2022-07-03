@@ -146,5 +146,20 @@ namespace WPFEmployeesTracker.Views
             rbStart.IsChecked = false;
             gridTask.ItemsSource = taskList;
         }
+
+        TaskModel model = new TaskModel();
+
+        private void gridTask_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            model = (TaskModel)gridTask.SelectedItem;
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            TaskPage page = new TaskPage();
+            page.model = model;
+            page.ShowDialog();
+            FillDataGrid();
+        }
     }
 }
