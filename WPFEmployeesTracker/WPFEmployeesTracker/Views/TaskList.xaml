@@ -53,7 +53,7 @@
             <RadioButton x:Name="rbStart" Content="Start Date" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <RadioButton x:Name="rbDelivery" Content="Delivery Date" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <Button x:Name="btnSearch" Content="Search" Grid.Row="3" Grid.Column="4" Margin="10,5,10,5" Click="btnSearch_Click" />
-            <Button x:Name="btnClear" Content="Clear" Grid.Row="4" Grid.Column="4" Margin="10,5,10,5" Click="btnClear_Click" />
+            <Button x:Name="btnClear" Content="Clear" Grid.Row="3" Grid.Column="4" Margin="10,5,10,5" Click="btnClear_Click" Grid.RowSpan="2" />
         </Grid>
         <DataGrid x:Name="gridTask" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="gridTask_SelectionChanged">
             <DataGrid.Columns>

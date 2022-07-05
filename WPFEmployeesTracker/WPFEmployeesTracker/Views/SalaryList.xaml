@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFEmployeesTracker.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="800" FontSize="18" FontWeight="Bold">
+             d:DesignHeight="500" d:DesignWidth="800" FontSize="18" FontWeight="Bold" Loaded="UserControl_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="4*" />
@@ -40,7 +40,7 @@
             <Label Content="Surname" Grid.Row="2" Height="34" Width="133" HorizontalAlignment="Center" VerticalAlignment="Center" />
             <TextBox x:Name="txtSurname" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Height="26" />
             <Label Content="Department" Grid.Row="3" Height="34" Width="133" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            <ComboBox Name="cmbDepartment" Grid.Row="3" Grid.Column="1" Height="30" VerticalAlignment="Center" />
+            <ComboBox Name="cmbDepartment" Grid.Row="3" Grid.Column="1" Height="30" VerticalAlignment="Center" SelectionChanged="cmbDepartment_SelectionChanged" />
             <Label Content="Position" Grid.Row="4" Height="34" Width="133" HorizontalAlignment="Center" VerticalAlignment="Center" />
             <ComboBox Name="cmbPosition" Grid.Row="4" Grid.Column="1" Height="30" VerticalAlignment="Center" />
             <Label Content="Year" Grid.Column="2" Height="34" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -52,8 +52,8 @@
             <RadioButton x:Name="rbMore" Content="More" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <RadioButton x:Name="rbLess" Content="Less" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
             <RadioButton x:Name="rbEquals" Content="Equals" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <Button x:Name="btnSearch" Content="Search" Grid.Row="4" Grid.Column="3" Margin="10,5,10,5" />
-            <Button x:Name="btnClear" Content="Clear" Grid.Row="4" Grid.Column="4" Margin="10,5,10,5" />
+            <Button x:Name="btnSearch" Content="Search" Grid.Row="3" Grid.Column="3" Margin="10,5,10,5" Click="btnSearch_Click" Grid.RowSpan="2" />
+            <Button x:Name="btnClear" Content="Clear" Grid.Row="3" Grid.Column="4" Margin="10,5,10,5" Click="btnClear_Click" Grid.RowSpan="2" />
         </Grid>
         <DataGrid x:Name="gridSalary" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
