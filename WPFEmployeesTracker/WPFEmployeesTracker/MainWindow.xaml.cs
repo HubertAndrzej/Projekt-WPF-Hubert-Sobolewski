@@ -55,5 +55,11 @@ namespace WPFEmployeesTracker
             lblWindowName.Content = "Salary List";
             DataContext = new SalaryViewModel();
         }
+
+        private void btnPermission_Click(object sender, RoutedEventArgs e)
+        {
+            lblWindowName.Content = "Permission List";
+            DataContext = new PermissionViewModel();
+        }
     }
 }

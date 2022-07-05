@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\App.xaml
-12-1242600977
+14-896883315
 
-37975111264
+411115057889
 2141069862198
-DepartmentPage.xaml;EmployeePage.xaml;LoginPage.xaml;MainWindow.xaml;PositionPage.xaml;SalaryPage.xaml;TaskPage.xaml;Views\DepartmentList.xaml;Views\EmployeeList.xaml;Views\PositionList.xaml;Views\SalaryList.xaml;Views\TaskList.xaml;
+DepartmentPage.xaml;EmployeePage.xaml;LoginPage.xaml;MainWindow.xaml;PermissionPage.xaml;PositionPage.xaml;SalaryPage.xaml;TaskPage.xaml;Views\DepartmentList.xaml;Views\EmployeeList.xaml;Views\PermissionList.xaml;Views\PositionList.xaml;Views\SalaryList.xaml;Views\TaskList.xaml;
 
 True
 
