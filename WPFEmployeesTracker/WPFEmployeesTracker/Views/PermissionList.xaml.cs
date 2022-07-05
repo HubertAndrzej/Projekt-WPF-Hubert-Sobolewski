@@ -184,5 +184,23 @@ namespace WPFEmployeesTracker.Views
                 FillDataGrid();
             }
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (model != null && model.Id != 0)
+            {
+                if (MessageBox.Show("Are you sure to delete?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    Permission permission = db.Permissions.Find(model.Id);
+                    db.Permissions.Remove(permission);
+                    db.SaveChanges();
+                    MessageBox.Show("The permission has been deleted");
+                    FillDataGrid();
+                }
+            }
+            else
+                MessageBox.Show("Please select an item from the table");
+        }
+    }
     }
 }

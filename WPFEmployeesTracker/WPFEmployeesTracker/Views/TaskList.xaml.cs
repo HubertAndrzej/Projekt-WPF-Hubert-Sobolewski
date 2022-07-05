@@ -163,7 +163,7 @@ namespace WPFEmployeesTracker.Views
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Are yo sure to delete", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Are you sure to delete?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 if (model.Id != 0)
                 {

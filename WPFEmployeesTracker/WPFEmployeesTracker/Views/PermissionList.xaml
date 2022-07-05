@@ -82,7 +82,7 @@
             <Button x:Name="btnDisapprove" Content="Disapprove" Grid.Column="1" FontFamily="18" FontWeight="Bold" Margin="20,5,20,5" Click="btnDisapprove_Click" />
             <Button x:Name="btnAdd" Content="Add" Grid.Column="2" FontFamily="18" FontWeight="Bold" Margin="20,5,20,5" Click="btnAdd_Click" />
             <Button x:Name="btnUpdate" Content="Update" Grid.Column="3" FontFamily="18" FontWeight="Bold" Margin="20,5,20,5" Click="btnUpdate_Click" />
-            <Button x:Name="btnDelete" Content="Delete" Grid.Column="4" FontFamily="18" FontWeight="Bold" Margin="20,5,20,5" />
+            <Button x:Name="btnDelete" Content="Delete" Grid.Column="4" FontFamily="18" FontWeight="Bold" Margin="20,5,20,5" Click="btnDelete_Click" />
         </Grid>
     </Grid>
 </UserControl>
