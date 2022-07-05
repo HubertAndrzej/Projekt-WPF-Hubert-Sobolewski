@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -160,6 +159,22 @@ namespace WPFEmployeesTracker.Views
             page.model = model;
             page.ShowDialog();
             FillDataGrid();
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Are yo sure to delete", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                if (model.Id != 0)
+                {
+                    TaskModel taskModel = (TaskModel)gridTask.SelectedItem;
+                    Task task = db.Tasks.First(x => x.Id == taskModel.Id);
+                    db.Tasks.Remove(task);
+                    db.SaveChanges();
+                    MessageBox.Show("The task has been deleted");
+                    FillDataGrid();
+                }
+            }
         }
     }
 }
