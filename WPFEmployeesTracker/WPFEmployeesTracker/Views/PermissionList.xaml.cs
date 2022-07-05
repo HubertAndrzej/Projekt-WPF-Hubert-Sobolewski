@@ -138,5 +138,51 @@ namespace WPFEmployeesTracker.Views
             rbStart.IsChecked = false;
             gridPermission.ItemsSource = permissions;
         }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            if (model != null && model.Id != 0)
+            {
+                PermissionPage page = new PermissionPage();
+                page.model = model;
+                page.ShowDialog();
+                FillDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("Please select a permission from table");
+            }
+        }
+
+        PermissionModel model = new PermissionModel();
+
+        private void gridPermission_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            model = (PermissionModel)gridPermission.SelectedItem;
+        }
+
+        private void btnApprove_Click(object sender, RoutedEventArgs e)
+        {
+            if (model != null && model.Id != 0 && model.PermissionState == Definitions.PermissionStates.OnAdmin)
+            {
+                Permission permission = db.Permissions.Find(model.Id);
+                permission.PermissionState = Definitions.PermissionStates.Approved;
+                db.SaveChanges();
+                MessageBox.Show("The permission has been approved");
+                FillDataGrid();
+            }
+        }
+
+        private void btnDisapprove_Click(object sender, RoutedEventArgs e)
+        {
+            if (model != null && model.Id != 0 && model.PermissionState == Definitions.PermissionStates.OnAdmin)
+            {
+                Permission permission = db.Permissions.Find(model.Id);
+                permission.PermissionState = Definitions.PermissionStates.Disapproved;
+                db.SaveChanges();
+                MessageBox.Show("The permission has been disapproved");
+                FillDataGrid();
+            }
+        }
     }
 }
