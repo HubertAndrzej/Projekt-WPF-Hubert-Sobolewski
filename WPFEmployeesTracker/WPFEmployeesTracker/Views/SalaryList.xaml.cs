@@ -24,5 +24,11 @@ namespace WPFEmployeesTracker.Views
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            SalaryPage page = new SalaryPage();
+            page.ShowDialog();
+        }
     }
 }

@@ -32,10 +32,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Department.png" />
     <Resource Include="Employee.png" />
     <Resource Include="Exit.png" />

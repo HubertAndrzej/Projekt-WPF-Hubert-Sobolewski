@@ -18,7 +18,7 @@ namespace WPFEmployeesTracker.Models
 
         public virtual DbSet<Department> Departments { get; set; } = null!;
         public virtual DbSet<Employee> Employees { get; set; } = null!;
-        public virtual DbSet<Month> Months { get; set; } = null!;
+        public virtual DbSet<SalaryMonth> SalaryMonths { get; set; } = null!;
         public virtual DbSet<Permission> Permissions { get; set; } = null!;
         public virtual DbSet<PermissionState> PermissionStates { get; set; } = null!;
         public virtual DbSet<Position> Positions { get; set; } = null!;
@@ -85,7 +85,7 @@ namespace WPFEmployeesTracker.Models
                     .HasConstraintName("FK_Employees_Positions");
             });
 
-            modelBuilder.Entity<Month>(entity =>
+            modelBuilder.Entity<SalaryMonth>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -150,19 +150,19 @@ namespace WPFEmployeesTracker.Models
 
                 entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
-                entity.Property(e => e.MonthId).HasColumnName("MonthID");
+                entity.Property((System.Linq.Expressions.Expression<Func<Salary, int>>)(e => (int)e.Month)).HasColumnName("MonthID");
 
-                entity.HasOne(d => d.Employee)
+                entity.HasOne<Employee>(d => d.Employee)
                     .WithMany(p => p.Salaries)
                     .HasForeignKey(d => d.EmployeeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Salaries_Employees");
+                    .HasConstraintName<Employee, Salary>("FK_Salaries_Employees");
 
-                entity.HasOne(d => d.Month)
+                entity.HasOne<SalaryMonth>(d => d.MonthNavigation)
                     .WithMany(p => p.Salaries)
-                    .HasForeignKey(d => d.MonthId)
+                    .HasForeignKey((System.Linq.Expressions.Expression<Func<Salary, object?>>)(d => d.Month))
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Salaries_Months");
+                    .HasConstraintName<SalaryMonth, Salary>("FK_Salaries_Months");
             });
 
             modelBuilder.Entity<Task>(entity =>

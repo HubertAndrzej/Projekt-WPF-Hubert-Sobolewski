@@ -70,3 +70,5 @@ C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmploy
 C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\Views\TaskList.baml
 C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\Views\SalaryList.g.cs
 C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\Views\SalaryList.baml
+C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\SalaryPage.g.cs
+C:\Users\huber\OneDrive\Desktop\Studio\Projekt WPF\WPFEmployeesTracker\WPFEmployeesTracker\obj\Debug\net6.0-windows\SalaryPage.baml

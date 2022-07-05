@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace WPFEmployeesTracker.Models
 {
-    public partial class Month
+    public partial class SalaryMonth
     {
-        public Month()
+        public SalaryMonth()
         {
             Salaries = new HashSet<Salary>();
         }
