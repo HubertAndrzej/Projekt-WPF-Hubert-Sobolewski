@@ -74,5 +74,27 @@ namespace WPFEmployeesTracker.Views
                 FillGrid();
             }
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            PositionModel model = (PositionModel)gridPosition.SelectedItem;
+            if (model != null && model.Id != 0)
+            {
+                if (MessageBox.Show("Are you sure to delete?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    List<Employee> employees = db.Employees.Where(x => x.PositionId == model.Id).ToList();
+                    foreach (var employee in employees)
+                    {
+                        db.Employees.Remove(employee);
+                    }
+                    db.SaveChanges();
+                    Position position = db.Positions.Find(model.Id);
+                    db.Positions.Remove(position);
+                    db.SaveChanges();
+                    MessageBox.Show("Position was deleted");
+                    FillGrid();
+                }
+            }
+        }
     }
 }

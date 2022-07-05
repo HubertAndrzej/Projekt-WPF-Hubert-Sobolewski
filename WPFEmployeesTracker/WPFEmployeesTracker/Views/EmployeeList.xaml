@@ -65,6 +65,6 @@
         </Grid>
         <Button x:Name="btnAdd" Content="Add" FontSize="18" FontWeight="Bold" Grid.Row="2" Grid.Column="1" Margin="40,5,40,5" Click="btnAdd_Click" />
         <Button x:Name="btnUpdate" Content="Update" FontSize="18" FontWeight="Bold" Grid.Row="2" Grid.Column="2" Margin="40,5,40,5" Click="btnUpdate_Click" />
-        <Button x:Name="btnDelete" Content="Delete" FontSize="18" FontWeight="Bold" Grid.Row="2" Grid.Column="3" Margin="40,5,40,5" />
+        <Button x:Name="btnDelete" Content="Delete" FontSize="18" FontWeight="Bold" Grid.Row="2" Grid.Column="3" Margin="40,5,40,5" Click="btnDelete_Click" />
     </Grid>
 </UserControl>

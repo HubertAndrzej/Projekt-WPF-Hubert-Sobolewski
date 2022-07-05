@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -132,6 +131,38 @@ namespace WPFEmployeesTracker.Views
             page.model = model;
             page.ShowDialog();
             FillDatagrid();
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeModel model = (EmployeeModel)gridEmployee.SelectedItem;
+            if (model != null && model.Id != 0)
+            {
+                if (MessageBox.Show("Are you sure to delete?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    List<Task> tasks = db.Tasks.Where(x => x.EmployeeId == model.Id).ToList();
+                    foreach (var task in tasks)
+                    {
+                        db.Tasks.Remove(task);
+                    }
+                    List<Permission> permissions = db.Permissions.Where(x => x.EmployeeId == model.Id).ToList();
+                    foreach (var permission in permissions)
+                    {
+                        db.Permissions.Remove(permission);
+                    }
+                    List<Salary> salaries = db.Salaries.Where(x => x.EmployeeId == model.Id).ToList();
+                    foreach (var salary in salaries)
+                    {
+                        db.Salaries.Remove(salary);
+                    }
+                    db.SaveChanges();
+                    Employee emp = db.Employees.Find(model.Id);
+                    db.Employees.Remove(emp);
+                    db.SaveChanges();
+                    MessageBox.Show("The employee has been deleted");
+                    FillDatagrid();
+                }
+            }
         }
     }
 }

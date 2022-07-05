@@ -53,5 +53,28 @@ namespace WPFEmployeesTracker.Views
                 gridDepartment.ItemsSource = db.Departments.OrderBy(x => x.DepartmentName).ToList();
             }
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            Department model = (Department)gridDepartment.SelectedItem;
+            if (model != null && model.Id != 0)
+            {
+                if (MessageBox.Show("Are you sure to delete?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    EmployeesTrackerContext db = new EmployeesTrackerContext();
+                    List<Position> positions = db.Positions.Where(x => x.DepartmentId == model.Id).ToList();
+                    foreach (var position in positions)
+                    {
+                        db.Positions.Remove(position);
+                    }
+                    db.SaveChanges();
+                    Department department = db.Departments.Find(model.Id);
+                    db.Departments.Remove(department);
+                    db.SaveChanges();
+                    MessageBox.Show("The department has been deleted");
+                    gridDepartment.ItemsSource = db.Departments.ToList();
+                }
+            }
+        }
     }
 }
