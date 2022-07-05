@@ -169,5 +169,21 @@ namespace WPFEmployeesTracker.Views
         {
             model = (SalaryModel)gridSalary.SelectedItem;
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Are yo sure to delete", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                if (model.Id != 0)
+                {
+                    SalaryModel salaryModel = (SalaryModel)gridSalary.SelectedItem;
+                    Salary salary = db.Salaries.Find(salaryModel.Id);
+                    db.Salaries.Remove(salary);
+                    db.SaveChanges();
+                    MessageBox.Show("The salary has been deleted");
+                    FillDataGrid();
+                }
+            }
+        }
     }
 }
