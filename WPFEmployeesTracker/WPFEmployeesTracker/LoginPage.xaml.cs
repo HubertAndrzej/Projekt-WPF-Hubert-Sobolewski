@@ -52,6 +52,9 @@ namespace WPFEmployeesTracker
                     UserStatic.Name = employee.Name;
                     UserStatic.Surname = employee.Surname;
                     main.ShowDialog();
+                    txtEmployeeNo.Clear();
+                    txtPassword.Clear();
+                    this.Visibility = Visibility.Visible;
                 }
                 else
                 {

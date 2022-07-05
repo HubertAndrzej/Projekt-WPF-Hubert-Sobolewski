@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFEmployeesTracker", "WPFEmployeesTracker\WPFEmployeesTracker.csproj", "{D47279E5-EB35-4EE1-BAA8-B22ED67D661B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFEmployeesTracker", "WPFEmployeesTracker\WPFEmployeesTracker.csproj", "{C3DDA1A4-0D8C-4376-B605-A40A7282458E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D47279E5-EB35-4EE1-BAA8-B22ED67D661B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D47279E5-EB35-4EE1-BAA8-B22ED67D661B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D47279E5-EB35-4EE1-BAA8-B22ED67D661B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D47279E5-EB35-4EE1-BAA8-B22ED67D661B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3DDA1A4-0D8C-4376-B605-A40A7282458E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3DDA1A4-0D8C-4376-B605-A40A7282458E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3DDA1A4-0D8C-4376-B605-A40A7282458E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3DDA1A4-0D8C-4376-B605-A40A7282458E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {31540C6F-59FC-47A5-A1A2-209A81245D8B}
+		SolutionGuid = {478DFF93-6578-4C27-BA6E-77DAF6A7FA55}
 	EndGlobalSection
 EndGlobal

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFEmployeesTracker"
         mc:Ignorable="d"
-        Title="Permission Page" Height="450" Width="450" WindowStartupLocation="CenterScreen" FontSize="18" FontWeight="Bold" Background="#FF6690B5" Icon="/Logo.png" ResizeMode="NoResize">
+        Title="Permission Page" Height="450" Width="450" WindowStartupLocation="CenterScreen" FontSize="18" FontWeight="Bold" Background="#FF6690B5" Icon="/Logo.png" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -25,9 +25,9 @@
         <Label Content="EmployeeNo" Height="34" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" />
         <TextBox x:Name="txtEmployeeNo" IsEnabled="False" Grid.Column="1" Height="26" Margin="0,0,30,0" />
         <Label Content="Start Date" Grid.Row="1" Height="34" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <DatePicker Name="dpStart" Grid.Row="1" Grid.Column="1" />
+        <DatePicker Name="dpStart" Grid.Row="1" Grid.Column="1" SelectedDateChanged="dpStart_SelectedDateChanged" />
         <Label Content="End Date" Grid.Row="2" Height="34" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <DatePicker Name="dpEnd" Grid.Row="2" Grid.Column="1" />
+        <DatePicker Name="dpEnd" Grid.Row="2" Grid.Column="1" SelectedDateChanged="dpEnd_SelectedDateChanged" />
         <Label Content="Day Amount" Grid.Row="3" Height="34" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" />
         <TextBox x:Name="txtDayAmount" IsEnabled="False" Grid.Row="3" Grid.Column="1" Height="26" Margin="0,0,30,0" />
         <Label Content="Explanation" Grid.Row="4" Height="34" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -37,8 +37,8 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnSave" Content="Save" Grid.Row="7" HorizontalAlignment="Right" Margin="0,0,0,0" Width="140" />
-            <Button x:Name="btnClose" Content="Close" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,0" Width="140" />
+            <Button x:Name="btnSave" Content="Save" Grid.Row="7" HorizontalAlignment="Right" Margin="0,0,0,0" Width="140" Click="btnSave_Click" />
+            <Button x:Name="btnClose" Content="Close" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,0" Width="140" Click="btnClose_Click" />
         </Grid>
     </Grid>
 </Window>

@@ -7,11 +7,12 @@ namespace WPFEmployeesTracker.Models
     {
         public int Id { get; set; }
         public int EmployeeId { get; set; }
-        public DateTime PermissionStartDate { get; set; }
-        public DateTime PermissionEndDate { get; set; }
+        public int EmployeeNo { get; set; }
+        public DateTime? PermissionStartDate { get; set; }
+        public DateTime? PermissionEndDate { get; set; }
         public int PermissionState { get; set; }
-        public string? PermissionExplanation { get; set; }
-        public int PermissionDay { get; set; }
+        public string PermissionExplanation { get; set; }
+        public int PermissionAmount { get; set; }
 
         public virtual Employee Employee { get; set; } = null!;
         public virtual PermissionState PermissionStateNavigation { get; set; } = null!;

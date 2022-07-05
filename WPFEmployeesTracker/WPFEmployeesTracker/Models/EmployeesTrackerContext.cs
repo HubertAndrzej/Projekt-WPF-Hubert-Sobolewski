@@ -18,11 +18,11 @@ namespace WPFEmployeesTracker.Models
 
         public virtual DbSet<Department> Departments { get; set; } = null!;
         public virtual DbSet<Employee> Employees { get; set; } = null!;
-        public virtual DbSet<SalaryMonth> SalaryMonths { get; set; } = null!;
         public virtual DbSet<Permission> Permissions { get; set; } = null!;
         public virtual DbSet<PermissionState> PermissionStates { get; set; } = null!;
         public virtual DbSet<Position> Positions { get; set; } = null!;
         public virtual DbSet<Salary> Salaries { get; set; } = null!;
+        public virtual DbSet<SalaryMonth> SalaryMonths { get; set; } = null!;
         public virtual DbSet<Task> Tasks { get; set; } = null!;
         public virtual DbSet<TaskState> TaskStates { get; set; } = null!;
 
@@ -31,7 +31,7 @@ namespace WPFEmployeesTracker.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=.; Database=EmployeesTracker; trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=.; Database=EmployeesTracker; Trusted_Connection=True;");
             }
         }
 
@@ -85,24 +85,11 @@ namespace WPFEmployeesTracker.Models
                     .HasConstraintName("FK_Employees_Positions");
             });
 
-            modelBuilder.Entity<SalaryMonth>(entity =>
-            {
-                entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.MonthName)
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
-            });
-
             modelBuilder.Entity<Permission>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
-
                 entity.Property(e => e.PermissionEndDate).HasColumnType("date");
-
-                entity.Property(e => e.PermissionExplanation).IsUnicode(false);
 
                 entity.Property(e => e.PermissionStartDate).HasColumnType("date");
 
@@ -150,19 +137,28 @@ namespace WPFEmployeesTracker.Models
 
                 entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
-                entity.Property((System.Linq.Expressions.Expression<Func<Salary, int>>)(e => (int)e.Month)).HasColumnName("MonthID");
+                entity.Property(e => e.Month).HasColumnName("MonthID");
 
-                entity.HasOne<Employee>(d => d.Employee)
+                entity.HasOne(d => d.Employee)
                     .WithMany(p => p.Salaries)
                     .HasForeignKey(d => d.EmployeeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName<Employee, Salary>("FK_Salaries_Employees");
+                    .HasConstraintName("FK_Salaries_Employees");
 
-                entity.HasOne<SalaryMonth>(d => d.MonthNavigation)
+                entity.HasOne(d => d.MonthNavigation)
                     .WithMany(p => p.Salaries)
-                    .HasForeignKey((System.Linq.Expressions.Expression<Func<Salary, object?>>)(d => d.Month))
+                    .HasForeignKey(d => d.Month)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName<SalaryMonth, Salary>("FK_Salaries_Months");
+                    .HasConstraintName("FK_Salaries_Months");
+            });
+
+            modelBuilder.Entity<SalaryMonth>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.MonthName)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Task>(entity =>

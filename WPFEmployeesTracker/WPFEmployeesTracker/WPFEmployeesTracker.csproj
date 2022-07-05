@@ -11,6 +11,31 @@
     <None Remove="Department.png" />
     <None Remove="Employee.png" />
     <None Remove="Exit.png" />
+    <None Remove="Images\Department.png" />
+    <None Remove="Images\Employee.png" />
+    <None Remove="Images\Exit.png" />
+    <None Remove="Images\Logo.png" />
+    <None Remove="Images\Logout.png" />
+    <None Remove="Images\Permission.png" />
+    <None Remove="Images\Position.png" />
+    <None Remove="Images\Salary.png" />
+    <None Remove="Images\Tasks.png" />
+    <None Remove="Images\users-1.png" />
+    <None Remove="Images\users-10.png" />
+    <None Remove="Images\users-11.png" />
+    <None Remove="Images\users-12.png" />
+    <None Remove="Images\users-13.png" />
+    <None Remove="Images\users-14.png" />
+    <None Remove="Images\users-15.png" />
+    <None Remove="Images\users-16.png" />
+    <None Remove="Images\users-2.png" />
+    <None Remove="Images\users-3.png" />
+    <None Remove="Images\users-4.png" />
+    <None Remove="Images\users-5.png" />
+    <None Remove="Images\users-6.png" />
+    <None Remove="Images\users-7.png" />
+    <None Remove="Images\users-8.png" />
+    <None Remove="Images\users-9.png" />
     <None Remove="Logo.png" />
     <None Remove="Logout.png" />
     <None Remove="Permission.png" />
@@ -32,9 +57,38 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Department.png" />
     <Resource Include="Employee.png" />
     <Resource Include="Exit.png" />
+    <Resource Include="Images\Department.png" />
+    <Resource Include="Images\Employee.png" />
+    <Resource Include="Images\Exit.png" />
+    <Resource Include="Images\Logo.png" />
+    <Resource Include="Images\Logout.png" />
+    <Resource Include="Images\Permission.png" />
+    <Resource Include="Images\Position.png" />
+    <Resource Include="Images\Salary.png" />
+    <Resource Include="Images\Tasks.png" />
+    <Resource Include="Images\users-1.png" />
+    <Resource Include="Images\users-10.png" />
+    <Resource Include="Images\users-11.png" />
+    <Resource Include="Images\users-12.png" />
+    <Resource Include="Images\users-13.png" />
+    <Resource Include="Images\users-14.png" />
+    <Resource Include="Images\users-15.png" />
+    <Resource Include="Images\users-16.png" />
+    <Resource Include="Images\users-2.png" />
+    <Resource Include="Images\users-3.png" />
+    <Resource Include="Images\users-4.png" />
+    <Resource Include="Images\users-5.png" />
+    <Resource Include="Images\users-6.png" />
+    <Resource Include="Images\users-7.png" />
+    <Resource Include="Images\users-8.png" />
+    <Resource Include="Images\users-9.png" />
     <Resource Include="Logo.png" />
     <Resource Include="Logout.png" />
     <Resource Include="Permission.png" />

@@ -61,5 +61,10 @@ namespace WPFEmployeesTracker
             lblWindowName.Content = "Permission List";
             DataContext = new PermissionViewModel();
         }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

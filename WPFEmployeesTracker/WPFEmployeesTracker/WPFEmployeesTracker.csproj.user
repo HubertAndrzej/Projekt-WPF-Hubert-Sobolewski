@@ -7,44 +7,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="DepartmentPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="EmployeePage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="LoginPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="PositionPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="SalaryPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="TaskPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\DepartmentList.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\EmployeeList.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\PermissionList.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\PositionList.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\SalaryList.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\TaskList.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Page Update="DepartmentPage.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -55,6 +17,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PermissionPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PositionPage.xaml">

@@ -24,5 +24,11 @@ namespace WPFEmployeesTracker.Views
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            PermissionPage page = new PermissionPage();
+            page.ShowDialog();
+        }
     }
 }
