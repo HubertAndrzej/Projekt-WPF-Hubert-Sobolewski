@@ -154,5 +154,20 @@ namespace WPFEmployeesTracker.Views
             rbMore.IsChecked = false;
             gridSalary.ItemsSource = salaries;
         }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            SalaryPage page = new SalaryPage();
+            page.model = model;
+            page.ShowDialog();
+            FillDataGrid();
+        }
+
+        SalaryModel model = new SalaryModel();
+
+        private void gridSalary_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            model = (SalaryModel)gridSalary.SelectedItem;
+        }
     }
 }

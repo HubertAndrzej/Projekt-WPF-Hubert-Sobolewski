@@ -55,7 +55,7 @@
             <Button x:Name="btnSearch" Content="Search" Grid.Row="3" Grid.Column="3" Margin="10,5,10,5" Click="btnSearch_Click" Grid.RowSpan="2" />
             <Button x:Name="btnClear" Content="Clear" Grid.Row="3" Grid.Column="4" Margin="10,5,10,5" Click="btnClear_Click" Grid.RowSpan="2" />
         </Grid>
-        <DataGrid x:Name="gridSalary" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid x:Name="gridSalary" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="gridSalary_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Width="*" Binding="{Binding Id}" Visibility="Hidden" />
                 <DataGridTextColumn Header="EmployeeId" Width="*" Binding="{Binding EmployeeId}" Visibility="Hidden" />
@@ -75,7 +75,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Button x:Name="btnAdd" Content="Add" FontSize="18" FontWeight="Bold" Margin="40,5,40,5" Click="btnAdd_Click" />
-            <Button x:Name="btnUpdate" Content="Update" Grid.Column="1" FontSize="18" FontWeight="Bold" Margin="40,5,40,5" />
+            <Button x:Name="btnUpdate" Content="Update" Grid.Column="1" FontSize="18" FontWeight="Bold" Margin="40,5,40,5" Click="btnUpdate_Click" />
             <Button x:Name="btnDelete" Content="Delete" Grid.Column="2" FontSize="18" FontWeight="Bold" Margin="40,5,40,5" />
         </Grid>
     </Grid>

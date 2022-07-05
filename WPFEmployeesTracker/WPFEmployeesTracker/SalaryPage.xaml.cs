@@ -48,6 +48,16 @@ namespace WPFEmployeesTracker
             cmbMonth.DisplayMemberPath = "MonthName";
             cmbMonth.SelectedValuePath = "Id";
             cmbMonth.SelectedIndex = -1;
+            if (model != null && model.Id != 0)
+            {
+                txtName.Text = model.Name;
+                txtSalary.Text = model.Amount.ToString();
+                txtSurname.Text = model.Surname;
+                txtEmployeeNo.Text = model.EmployeeNo.ToString();
+                txtYear.Text = model.Year.ToString();
+                EmployeeId = model.EmployeeId;
+                cmbMonth.SelectedValue = model.MonthId;
+            }
         }
 
         int EmployeeId = 0;
@@ -93,7 +103,20 @@ namespace WPFEmployeesTracker
             {
                 if (model != null && model.Id != 0)
                 {
-
+                    Salary salary = db.Salaries.Find(model.Id);
+                    int oldSalary = salary.Amount;
+                    salary.Amount = Convert.ToInt32(txtSalary.Text);
+                    salary.EmployeeId = EmployeeId;
+                    salary.Month = Convert.ToInt32(cmbMonth.SelectedValue);
+                    salary.Year = Convert.ToInt32(txtYear.Text);
+                    db.SaveChanges();
+                    if (oldSalary < salary.Amount)
+                    {
+                        Employee employee = db.Employees.Find(EmployeeId);
+                        employee.Salary = salary.Amount;
+                        db.SaveChanges();
+                    }
+                    MessageBox.Show("The salary has been updated");
                 }
                 else
                 {
