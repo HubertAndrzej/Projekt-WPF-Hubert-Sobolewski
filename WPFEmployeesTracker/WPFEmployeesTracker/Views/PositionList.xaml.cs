@@ -91,7 +91,7 @@ namespace WPFEmployeesTracker.Views
                     Position position = db.Positions.Find(model.Id);
                     db.Positions.Remove(position);
                     db.SaveChanges();
-                    MessageBox.Show("Position was deleted");
+                    MessageBox.Show("The position has been deleted");
                     FillGrid();
                 }
             }

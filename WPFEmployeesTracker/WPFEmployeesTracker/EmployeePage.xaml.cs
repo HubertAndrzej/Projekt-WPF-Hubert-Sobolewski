@@ -62,6 +62,15 @@ namespace WPFEmployeesTracker
                 image.EndInit();
                 EmployeeImage.Source = image;
             }
+
+            if (!UserStatic.isAdmin)
+            {
+                chisAdmin.IsEnabled = false;
+                txtEmployeeNo.IsEnabled = false;
+                txtSalary.IsEnabled = false;
+                cmbDepartment.IsEnabled = false;
+                cmbPosition.IsEnabled = false;
+            }
         }
 
         private void cmbDepartment_SelectionChanged(object sender, SelectionChangedEventArgs e)

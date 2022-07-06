@@ -42,6 +42,14 @@ namespace WPFEmployeesTracker.Views
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             FillDataGrid();
+            if (!UserStatic.isAdmin)
+            {
+                btnAdd.Visibility = Visibility.Hidden;
+                btnUpdate.Visibility = Visibility.Hidden;
+                btnDelete.Visibility = Visibility.Hidden;
+                btnApprove.SetValue(Grid.ColumnProperty, 1);
+                btnApprove.Content = "Delivery";
+            }
         }
 
         void FillDataGrid()
@@ -62,6 +70,15 @@ namespace WPFEmployeesTracker.Views
                 DepartmentId = x.Employee.DepartmentId,
                 PositionId = x.Employee.PositionId
             }).ToList();
+            if (!UserStatic.isAdmin)
+            {
+                taskList = taskList.Where(x => x.EmployeeId == UserStatic.EmployeeId).ToList();
+                txtEmployeeNo.IsEnabled = false;
+                txtName.IsEnabled = false;
+                txtSurname.IsEnabled = false;
+                cmbDepartment.IsEnabled = false;
+                cmbPosition.IsEnabled = false;
+            }
             gridTask.ItemsSource = taskList;
             searchList = taskList;
             cmbDepartment.ItemsSource = db.Departments.ToList();
@@ -173,6 +190,46 @@ namespace WPFEmployeesTracker.Views
                     db.SaveChanges();
                     MessageBox.Show("The task has been deleted");
                     FillDataGrid();
+                }
+            }
+        }
+
+        private void btnApprove_Click(object sender, RoutedEventArgs e)
+        {
+            if (model != null && model.Id != 0)
+            {
+                {
+                    if (UserStatic.isAdmin && model.TaskState == Definitions.TaskStates.OnEmployee)
+                    {
+                        MessageBox.Show("The task must be delivered before being approved");
+                    }
+                    else if (UserStatic.isAdmin && model.TaskState == Definitions.TaskStates.Approved)
+                    {
+                        MessageBox.Show("This task is already approved");
+                    }
+                    else if (!UserStatic.isAdmin && model.TaskState == Definitions.TaskStates.Delivered)
+                    {
+                        MessageBox.Show("This task is already delivered");
+                    }
+                    else if (!UserStatic.isAdmin && model.TaskState == Definitions.TaskStates.Approved)
+                    {
+                        MessageBox.Show("This task is already approved");
+                    }
+                    else
+                    {
+                        Task task = db.Tasks.Find(model.Id);
+                        if (UserStatic.isAdmin)
+                        {
+                            task.TaskState = Definitions.TaskStates.Approved;
+                        }
+                        else
+                        {
+                            task.TaskState = Definitions.TaskStates.Delivered;
+                        }
+                        db.SaveChanges();
+                        MessageBox.Show("The task has been updated");
+                        FillDataGrid();
+                    }
                 }
             }
         }

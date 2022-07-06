@@ -55,6 +55,18 @@ namespace WPFEmployeesTracker.Views
                 DepartmentId = x.Employee.DepartmentId,
                 PositionId = x.Employee.PositionId
             }).OrderByDescending(x => x.Year).OrderByDescending(x => x.MonthId).ToList();
+            if (!UserStatic.isAdmin)
+            {
+                btnAdd.Visibility = Visibility.Hidden;
+                btnDelete.Visibility = Visibility.Hidden;
+                btnUpdate.Visibility = Visibility.Hidden;
+                salaries = salaries.Where(x => x.EmployeeId == UserStatic.EmployeeId).ToList();
+                txtEmployeeNo.IsEnabled = false;
+                txtName.IsEnabled = false;
+                txtSurname.IsEnabled = false;
+                cmbDepartment.IsEnabled = false;
+                cmbPosition.IsEnabled = false;
+            }
             gridSalary.ItemsSource = salaries;
         }
 

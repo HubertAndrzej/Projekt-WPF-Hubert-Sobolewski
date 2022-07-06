@@ -55,6 +55,19 @@ namespace WPFEmployeesTracker.Views
                 Surname = x.Employee.Surname,
                 EmployeeNo = x.Employee.EmployeeNo
             }).OrderByDescending(x => x.StartDate).ToList();
+            if (!UserStatic.isAdmin)
+            {
+                permissions = permissions.Where(x => x.EmployeeId == UserStatic.EmployeeId).ToList();
+                txtEmployeeNo.IsEnabled = false;
+                txtName.IsEnabled = false;
+                txtSurname.IsEnabled = false;
+                cmbDepartment.IsEnabled = false;
+                cmbPosition.IsEnabled = false;
+                btnDelete.Visibility = Visibility.Hidden;
+                btnApprove.Visibility = Visibility.Hidden;
+                btnDisapprove.Visibility = Visibility.Hidden;
+                btnAdd.SetValue(Grid.ColumnProperty, 1);
+            }
             gridPermission.ItemsSource = permissions;
         }
 
@@ -201,6 +214,5 @@ namespace WPFEmployeesTracker.Views
             else
                 MessageBox.Show("Please select an item from the table");
         }
-    }
     }
 }

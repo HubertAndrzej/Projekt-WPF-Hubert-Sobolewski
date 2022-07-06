@@ -49,9 +49,9 @@
             <ComboBox Name="cmbMonth" Grid.Row="1" Grid.Column="3" Height="30" VerticalAlignment="Center" />
             <Label Content="Salary" Grid.Row="2" Grid.Column="2" Height="34" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" />
             <TextBox x:Name="txtSalary" Grid.Row="2" Grid.Column="3" TextWrapping="Wrap" Height="26" />
-            <RadioButton x:Name="rbMore" Content="More" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <RadioButton x:Name="rbLess" Content="Less" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <RadioButton x:Name="rbEquals" Content="Equals" Grid.Row="3" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <RadioButton x:Name="rbMore" Content="More" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <RadioButton x:Name="rbLess" Content="Less" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <RadioButton x:Name="rbEquals" Content="Equals" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" />
             <Button x:Name="btnSearch" Content="Search" Grid.Row="3" Grid.Column="3" Margin="10,5,10,5" Click="btnSearch_Click" Grid.RowSpan="2" />
             <Button x:Name="btnClear" Content="Clear" Grid.Row="3" Grid.Column="4" Margin="10,5,10,5" Click="btnClear_Click" Grid.RowSpan="2" />
         </Grid>
