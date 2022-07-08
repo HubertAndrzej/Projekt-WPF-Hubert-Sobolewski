@@ -199,6 +199,35 @@ namespace WPFEmployeesTracker.Models
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<Department>().HasData(new Department 
+            { 
+                Id = 1,
+                DepartmentName = "Administration"
+            });
+
+            modelBuilder.Entity<Position>().HasData(new Position
+            {
+                Id = 1,
+                PositionName = "Administrator",
+                DepartmentId = 1
+            });
+
+            modelBuilder.Entity<Employee>().HasData(new Employee
+            {
+                Id = 1,
+                EmployeeNo = 1,
+                Name = "Hubert",
+                Surname = "Sobolewski",
+                ImagePath = "",
+                DepartmentId = 1,
+                PositionId = 1,
+                Salary = 1000,
+                BirthDay = new DateTime(1996, 05, 26),
+                Address = "Kraków",
+                Password = "1",
+                IsAdmin = true
+            });
+
             OnModelCreatingPartial(modelBuilder);
         }
 
